@@ -22,16 +22,22 @@ public class ModHammered  extends ModBoolean {
 	@Override
 	protected boolean canModify(ItemStack tool, ItemStack[] input)
 	{
-		ToolCore toolitem = (ToolCore) tool.getItem();
-		if (!validType(toolitem)) return false;
-		
-		NBTTagCompound tags = tool.getTagCompound().getCompoundTag("InfiTool");
-
-		if (!tags.getBoolean("Lava") && !tags.hasKey("Lapis") && !tags.hasKey("Silk Touch") && !tags.hasKey("Crooked"))
-		{
-			return tags.getInteger("Modifiers") > 0 && !tags.getBoolean(key);
-		}
+	        if (tool.getItem() instanceof ToolCore)
+	        {
+			ToolCore toolitem = (ToolCore) tool.getItem();
+			if (!validType(toolitem)) return false;
+			
+			NBTTagCompound tags = tool.getTagCompound().getCompoundTag("InfiTool");
+	
+			if (!tags.getBoolean("Lava") && !tags.hasKey("Lapis") && !tags.hasKey("Silk Touch") && !tags.hasKey("Crooked"))
+			{
+				return tags.getInteger("Modifiers") > 0 && !tags.getBoolean(key);
+			}
+			
 			return false;
+		}
+		
+		return false;
 	}
 	
 	public void modify(ItemStack[] input, ItemStack tool)
