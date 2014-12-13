@@ -80,6 +80,7 @@ public class TConstruct {
 	}
 	static void addModifiers()
 	{
+		/*
 		ToolBuilder.instance.registerToolMod(new ModCrooked(new ItemStack[] { new ItemStack(GameRegistry.findItem("exnihilo", "crook_bone"), 1, 0) }, 60));
 		TConstructClientRegistry.addEffectRenderMapping(60, "exastris", "crook", true);
 		
@@ -87,5 +88,6 @@ public class TConstruct {
 		TConstructClientRegistry.addEffectRenderMapping(61, "exastris", "hammer", true);
 		
 		TConstructRegistry.registerActiveToolMod(new TConstructModifier());
+		*/
 	}
 }
